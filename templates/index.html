@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Text Summarizer</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Summarizer</h1>
+        <form action="{{ url_for('summarize_text') }}" method="post">
+            <label for="text">Enter Text:</label>
+            <textarea name="text" rows="10" required></textarea>
+            <button type="submit">Summarize</button>
+        </form>
+        {% if text %}
+            <h2>Original Text:</h2>
+            <p>{{ text }}</p>
+            <h2>Summary:</h2>
+            <p>{{ summary }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
